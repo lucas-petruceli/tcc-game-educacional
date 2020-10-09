@@ -1,0 +1,19 @@
+00BDD6 azul claro
+
+EB008B rosa
+
+EF434C vermelho
+
+FCB813 amarelo
+
+8BC53F verde
+
+606866 cinza
+
+008FD5 azul (+ escuro)
+
+F05B40 laranja
+
+90278e roxo
+
+87543c marron

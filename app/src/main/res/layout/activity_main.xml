@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:id="@+id/rlHome">
 
     <TextView
         android:id="@+id/txtTitulo"
