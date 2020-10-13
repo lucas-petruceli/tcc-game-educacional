@@ -9,8 +9,13 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import br.com.gameeduunitcc.R
+import br.com.gameeduunitcc.repositorio.RepoDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 
 
 class HomeActivity : AppCompatActivity() {
@@ -20,6 +25,30 @@ class HomeActivity : AppCompatActivity() {
 
 //        setBackground(applicationContext, rlHome, R.drawable.home_background_azul)
         setupActivity()
+
+
+        GlobalScope.launch {
+            val fases = RepoDatabase.getInstance(this@HomeActivity)?.fasesDAO()?.getAll()
+            val niveis = RepoDatabase.getInstance(this@HomeActivity)?.niveisDAO()?.getAll()
+
+            val fasesNiveis =
+                RepoDatabase.getInstance(this@HomeActivity)?.fasesNiveisDAO()?.getAll()
+            val alternativas =
+                RepoDatabase.getInstance(this@HomeActivity)?.alternativasDAO()?.getAll()
+            val niveisAlternativas =
+                RepoDatabase.getInstance(this@HomeActivity)?.niveisAlternativasDAO()?.getAll()
+
+            MainScope().launch {
+                val nome = niveis?.get(1)?.imagemArquivo
+                val resoucerId =
+                    resources.getIdentifier(nome, "drawable", this@HomeActivity.packageName)
+                val drawableId = ContextCompat.getDrawable(this@HomeActivity, resoucerId)
+                teste.setImageDrawable(drawableId)
+            }
+
+            val t = 10
+        }
+
     }
 
     fun setupActivity() {
