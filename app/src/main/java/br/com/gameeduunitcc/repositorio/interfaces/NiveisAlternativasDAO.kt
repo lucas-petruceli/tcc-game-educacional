@@ -6,14 +6,17 @@ import br.com.gameeduunitcc.repositorio.tabelas.NiveisAlternativas
 @Dao
 interface NiveisAlternativasDAO {
     @Query("SELECT * FROM niveisAlternativas")
-    fun getAll(): List<NiveisAlternativas>
+    suspend fun getAll(): List<NiveisAlternativas>
 
     @Insert
     fun insertAll(vararg niveisAlternativas: NiveisAlternativas)
 
     @Delete
-    fun delete(niveisAlternativas: NiveisAlternativas)
+    suspend fun delete(niveisAlternativas: NiveisAlternativas)
 
     @Update
-    fun update(vararg niveisAlternativas: NiveisAlternativas)
+    suspend fun update(vararg niveisAlternativas: NiveisAlternativas)
+
+    @Query("SELECT * FROM niveisAlternativas WHERE idNivel = :idNivel")
+    suspend fun getAlternativas(idNivel: Int): List<NiveisAlternativas>
 }

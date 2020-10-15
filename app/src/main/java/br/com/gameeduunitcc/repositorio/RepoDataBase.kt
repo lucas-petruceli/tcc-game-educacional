@@ -26,55 +26,25 @@ abstract class RepoDatabase : RoomDatabase() {
     abstract fun niveisAlternativasDAO(): NiveisAlternativasDAO
 
     companion object {
-//        private val instance by lazy {
-//            RepoDatabase
-//        }
 
         val nameDB = "gamedb"
 
+        @Volatile
         private var instance: RepoDatabase? = null
 
-        @Synchronized
         fun getInstance(context: Context): RepoDatabase? {
-            if (instance == null) {
-                return Room.databaseBuilder(
-                    context,
-                    RepoDatabase::class.java,
-                    nameDB
-                ).build()
-            }
+            synchronized(this) {
+                var inst: RepoDatabase? = instance
+                if (inst == null) {
+                    inst = Room.databaseBuilder(
+                        context,
+                        RepoDatabase::class.java,
+                        nameDB
+                    ).build()
+                }
 
-            return instance
+                return inst
+            }
         }
     }
 }
-
-
-//@Database(entities = [Fases::class], version = 1)
-//abstract class RepoDatabase : RoomDatabase() {
-////    abstract val fases: Fases?
-//    abstract fun getRepoDao(): FasesDAO
-//
-//    companion object {
-//        private const val DB_NAME = "repoDatabase.db"
-//
-//        @Volatile
-//        private var instance: RepoDatabase? = null
-//
-//        @Synchronized
-//        fun getInstance(context: Context): RepoDatabase? {
-//            if (instance == null) {
-//                instance = create(context)
-//            }
-//            return instance
-//        }
-//
-//        private fun create(context: Context): RepoDatabase {
-//            return Room.databaseBuilder(
-//                context,
-//                RepoDatabase::class.java,
-//                DB_NAME
-//            ).build()
-//        }
-//    }
-//}

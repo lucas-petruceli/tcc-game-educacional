@@ -7,14 +7,17 @@ import br.com.gameeduunitcc.repositorio.tabelas.Alternativas
 interface AlternativasDAO {
 
     @Query("SELECT * FROM alternativas")
-    fun getAll(): List<Alternativas>
+    suspend fun getAll(): List<Alternativas>
 
     @Insert
     fun insertAll(vararg alternativas: Alternativas)
 
     @Delete
-    fun delete(alternativas: Alternativas)
+    suspend fun delete(alternativas: Alternativas)
 
     @Update
-    fun update(vararg alternativas: Alternativas)
+    suspend fun update(vararg alternativas: Alternativas)
+
+    @Query("SELECT * FROM alternativas WHERE idAlternativa = :idAlternativa")
+    suspend fun getAlternativa(idAlternativa: Int): Alternativas
 }

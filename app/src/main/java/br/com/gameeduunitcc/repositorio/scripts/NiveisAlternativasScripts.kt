@@ -1,6 +1,7 @@
 package br.com.gameeduunitcc.repositorio.scripts
 
 import android.content.Context
+import android.util.Log
 import br.com.gameeduunitcc.repositorio.RepoDatabase
 import br.com.gameeduunitcc.repositorio.tabelas.NiveisAlternativas
 import kotlinx.coroutines.GlobalScope
@@ -671,6 +672,340 @@ class NiveisAlternativasScripts {
                         false
                     )
                 )
+
+                //fase 5
+
+                /* Alternativas - Nivel 21 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        21,
+                        21,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        22,
+                        21,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        23,
+                        21,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        24,
+                        21,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 22 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        22,
+                        22,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        25,
+                        22,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        26,
+                        22,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        27,
+                        22,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 23 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        23,
+                        23,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        28,
+                        23,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        29,
+                        23,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        30,
+                        23,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 24 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        24,
+                        24,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        21,
+                        24,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        22,
+                        24,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        27,
+                        24,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 25 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        25,
+                        25,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        26,
+                        25,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        27,
+                        25,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        28,
+                        25,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 26 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        26,
+                        26,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        29,
+                        26,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        30,
+                        26,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        21,
+                        26,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 27 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        27,
+                        27,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        23,
+                        27,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        25,
+                        27,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        26,
+                        27,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 28 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        28,
+                        28,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        27,
+                        28,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        29,
+                        28,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        22,
+                        28,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 29 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        29,
+                        29,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        24,
+                        29,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        25,
+                        29,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        27,
+                        29,
+                        false
+                    )
+                )
+
+                /* Alternativas - Nivel 30 */
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        30,
+                        30,
+                        true
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        22,
+                        30,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        27,
+                        30,
+                        false
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisAlternativasDAO()?.insertAll(
+                    NiveisAlternativas(
+                        29,
+                        30,
+                        false
+                    )
+                )
+
+                Log.i("testeBd", "ultimo insert")
             }
         }
     }

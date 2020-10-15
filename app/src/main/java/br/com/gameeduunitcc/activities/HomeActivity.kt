@@ -9,45 +9,49 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import br.com.gameeduunitcc.Pref
 import br.com.gameeduunitcc.R
-import br.com.gameeduunitcc.repositorio.RepoDatabase
+import br.com.gameeduunitcc.viewlModel.HomeVM
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 
 
 class HomeActivity : AppCompatActivity() {
+
+    private val viewModel by lazy {
+        ViewModelProvider(this).get(HomeVM::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        setBackground(applicationContext, rlHome, R.drawable.home_background_azul)
+        setBackground(applicationContext, rlHome, R.drawable.home_background_azul)
         setupActivity()
 
 
-        GlobalScope.launch {
-            val fases = RepoDatabase.getInstance(this@HomeActivity)?.fasesDAO()?.getAll()
-            val niveis = RepoDatabase.getInstance(this@HomeActivity)?.niveisDAO()?.getAll()
-
-            val fasesNiveis =
-                RepoDatabase.getInstance(this@HomeActivity)?.fasesNiveisDAO()?.getAll()
-            val alternativas =
-                RepoDatabase.getInstance(this@HomeActivity)?.alternativasDAO()?.getAll()
-            val niveisAlternativas =
-                RepoDatabase.getInstance(this@HomeActivity)?.niveisAlternativasDAO()?.getAll()
-
-            MainScope().launch {
-                val nome = niveis?.get(19)?.imagemArquivo
-                val resoucerId =
-                    resources.getIdentifier(nome, "drawable", this@HomeActivity.packageName)
-                val drawableId = ContextCompat.getDrawable(this@HomeActivity, resoucerId)
-                teste.setImageDrawable(drawableId)
-            }
-
-            val t = 10
-        }
+//        GlobalScope.launch {
+//            val fases = RepoDatabase.getInstance(this@HomeActivity)?.fasesDAO()?.getAll()
+//            val niveis = RepoDatabase.getInstance(this@HomeActivity)?.niveisDAO()?.getAll()
+//
+//            val fasesNiveis =
+//                RepoDatabase.getInstance(this@HomeActivity)?.fasesNiveisDAO()?.getAll()
+//            val alternativas =
+//                RepoDatabase.getInstance(this@HomeActivity)?.alternativasDAO()?.getAll()
+//            val niveisAlternativas =
+//                RepoDatabase.getInstance(this@HomeActivity)?.niveisAlternativasDAO()?.getAll()
+//
+//            MainScope().launch { // TODO: corre o risco de não ter terminado de popular todos os dados
+//                val nome = niveis?.get(19)?.imagemArquivo
+//                val resoucerId =
+//                    resources.getIdentifier(nome, "drawable", this@HomeActivity.packageName)
+//                val drawableId = ContextCompat.getDrawable(this@HomeActivity, resoucerId)
+//                teste.setImageDrawable(drawableId)
+//            }
+//
+//            val t = 10
+//        }
 
     }
 
@@ -59,24 +63,25 @@ class HomeActivity : AppCompatActivity() {
         btnFases.setOnClickListener {
             fases()
         }
-
-        txtCadastrar.setOnClickListener {
-            cadastrar()
-        }
     }
 
     fun comecarGame() {
-        val intent = Intent(this, GameActivity::class.java)
-        startActivity(intent)
+        Pref.save(Pref.ID_ULTIMA_FASE_REALIZADA, 1) //TODO REmover
+
+        viewModel.fase.observe(this, Observer { faseStart ->
+            faseStart?.let {
+                val intent = Intent(this, GameActivity::class.java)
+                intent.putExtra("idFase", it.idFase)
+                intent.putExtra("audioHabilitado", it.audioHabilitado)
+                startActivity(intent)
+                return@Observer
+            }
+        })
+        viewModel.getStartNivel()
     }
 
     fun fases() {
         val intent = Intent(this, FasesActivity::class.java)
-        startActivity(intent)
-    }
-
-    fun cadastrar() {
-        val intent = Intent(this, CadastroActivity::class.java)
         startActivity(intent)
     }
 

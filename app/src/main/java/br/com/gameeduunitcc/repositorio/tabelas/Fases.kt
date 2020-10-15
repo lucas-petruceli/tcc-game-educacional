@@ -9,5 +9,6 @@ data class Fases(
     @PrimaryKey val idFase: Int,
     @ColumnInfo(name = "descricao") val descricao: String?,
     @ColumnInfo(name = "ordem") val ordem: Int,
-    @ColumnInfo(name = "nomeImagem") val nomeImage: String?
+    @ColumnInfo(name = "nomeImagem") val nomeImage: String?,
+    @ColumnInfo(name = "audio") val audioHabilitado: Boolean
 )

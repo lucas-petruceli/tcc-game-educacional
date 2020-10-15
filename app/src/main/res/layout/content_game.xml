@@ -9,4 +9,42 @@
     tools:showIn="@layout/activity_game"
     android:background="@android:color/white">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rlRecycler">
+
+        <ImageView
+            android:id="@+id/imgFala"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_fala"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAlternativas"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
 </RelativeLayout>

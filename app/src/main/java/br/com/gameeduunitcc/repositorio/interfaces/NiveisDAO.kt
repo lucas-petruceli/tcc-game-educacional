@@ -6,14 +6,17 @@ import br.com.gameeduunitcc.repositorio.tabelas.Niveis
 @Dao
 interface NiveisDAO {
     @Query("SELECT * FROM niveis")
-    fun getAll(): List<Niveis>
+    suspend fun getAll(): List<Niveis>
 
     @Insert
     fun insertAll(vararg niveis: Niveis)
 
     @Delete
-    fun delete(niveis: Niveis)
+    suspend fun delete(niveis: Niveis)
 
     @Update
-    fun update(vararg niveis: Niveis)
+    suspend fun update(vararg niveis: Niveis)
+
+    @Query("SELECT * FROM niveis WHERE idNivel = :idNivel")
+    suspend fun getNivel(idNivel: Int): Niveis
 }

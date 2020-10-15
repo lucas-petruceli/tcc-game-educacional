@@ -6,7 +6,7 @@ import br.com.gameeduunitcc.repositorio.tabelas.Fases
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class FasesScript {
+class FasesScripts {
     companion object {
         fun insertFases(context: Context) {
             GlobalScope.launch {
@@ -16,7 +16,8 @@ class FasesScript {
                         1,
                         "Cores com audio",
                         1,
-                        "nomeArquivo"
+                        "nomeArquivo",
+                        true
                     )
                 )
 
@@ -26,7 +27,8 @@ class FasesScript {
                         2,
                         "Cores",
                         2,
-                        "nomeArquivo"
+                        "nomeArquivo",
+                        false
                     )
                 )
 
@@ -36,7 +38,8 @@ class FasesScript {
                         3,
                         "Animais com audio",
                         3,
-                        "nomeArquivo"
+                        "nomeArquivo",
+                        true
                     )
                 )
 
@@ -46,7 +49,8 @@ class FasesScript {
                         4,
                         "Animais",
                         4,
-                        "nomeArquivo"
+                        "nomeArquivo",
+                        false
                     )
                 )
 
@@ -56,7 +60,8 @@ class FasesScript {
                         5,
                         "Formas",
                         5,
-                        "nomeArquivo"
+                        "nomeArquivo",
+                        false
                     )
                 )
 
@@ -66,7 +71,8 @@ class FasesScript {
                         6,
                         "Formas e Animais",
                         6,
-                        "nomeArquivo"
+                        "nomeArquivo",
+                        false
                     )
                 )
             }

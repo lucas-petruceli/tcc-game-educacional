@@ -28,7 +28,7 @@ class AlternativasScripts {
                 )
 
                 RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
-                    Alternativas(5, "ic_color_balde_marron")
+                    Alternativas(5, "ic_color_balde_marrom")
                 )
 
                 RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
@@ -90,6 +90,47 @@ class AlternativasScripts {
 
                 RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
                     Alternativas(20, "ic_animal_vaca")
+                )
+
+                /* Alternativas - FASE 4 */
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(21, "ic_form_circulo_azul_claro")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(22, "ic_form_coracao_roxo")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(23, "ic_form_estrela_amarelo")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(24, "ic_form_gota_cinza")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(25, "ic_form_hexagono_marrom")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(26, "ic_form_losango_laranja")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(27, "ic_form_nuvem_azul")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(28, "ic_form_quadrado_vermelho")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(29, "ic_form_seta_verde")
+                )
+
+                RepoDatabase.getInstance(context)?.alternativasDAO()?.insertAll(
+                    Alternativas(30, "ic_form_triangulo_rosa")
                 )
 
             }

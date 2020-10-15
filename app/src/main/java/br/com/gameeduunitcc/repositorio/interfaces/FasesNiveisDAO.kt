@@ -6,14 +6,17 @@ import br.com.gameeduunitcc.repositorio.tabelas.FasesNiveis
 @Dao
 interface FasesNiveisDAO {
     @Query("SELECT * FROM fasesNiveis")
-    fun getAll(): List<FasesNiveis>
+    suspend fun getAll(): List<FasesNiveis>
 
     @Insert
     fun insertAll(vararg fasesNiveis: FasesNiveis)
 
     @Delete
-    fun delete(fasesNiveis: FasesNiveis)
+    suspend fun delete(fasesNiveis: FasesNiveis)
 
     @Update
-    fun update(vararg fasesNiveis: FasesNiveis)
+    suspend fun update(vararg fasesNiveis: FasesNiveis)
+
+    @Query("SELECT * FROM fasesNiveis WHERE idFase = :idFase")
+    suspend fun getNivel(idFase: Int): List<FasesNiveis>
 }

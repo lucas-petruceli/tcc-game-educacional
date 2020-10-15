@@ -7,16 +7,7 @@
     android:padding="8dp"
     android:id="@+id/rlHome">
 
-    <ImageView
-        android:id="@+id/teste"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_color_tinta_verde" />
-
     <TextView
-        android:layout_below="@+id/teste"
         android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,14 +34,5 @@
         android:layout_below="@+id/btnComecar"
         android:layout_marginTop="10dp"
         android:text="Fases" />
-
-    <TextView
-        android:id="@+id/txtCadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>
