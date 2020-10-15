@@ -100,6 +100,97 @@ class NiveisScripts {
                         10
                     )
                 )
+
+                /* NIVEIS - FASE 3/4 */
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        11,
+                        "ic_animal_cavalo_sombra",
+                        null,
+                        1
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        12,
+                        "ic_animal_coelho_sombra",
+                        null,
+                        2
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        13,
+                        "ic_animal_galinha_sombra",
+                        null,
+                        3
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        14,
+                        "ic_animal_gato_sombra",
+                        null,
+                        4
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        15,
+                        "ic_animal_jacare_sombra",
+                        null,
+                        5
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        16,
+                        "ic_animal_macaco_sombra",
+                        null,
+                        6
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        17,
+                        "ic_animal_rato_sombra",
+                        null,
+                        7
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        18,
+                        "ic_animal_sapo_sombra",
+                        null,
+                        8
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        19,
+                        "ic_animal_tartaruga_sombra",
+                        null,
+                        9
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        20,
+                        "ic_animal_vaca_sombra",
+                        null,
+                        10
+                    )
+                )
             }
         }
     }

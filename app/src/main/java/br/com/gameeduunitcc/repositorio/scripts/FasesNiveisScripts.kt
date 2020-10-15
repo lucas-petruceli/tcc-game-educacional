@@ -91,6 +91,88 @@ class FasesNiveisScripts {
                 RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
                     FasesNiveis(2, 2)
                 )
+
+                /* NIVEIS - FASE 3 */
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 11)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 12)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 13)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 14)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 15)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 16)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 17)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 18)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 19)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(3, 20)
+                )
+
+                /* NIVEIS - FASE 4 */
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 11)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 12)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 13)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 14)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 15)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 16)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 17)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 18)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 19)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(4, 20)
+                )
             }
         }
     }

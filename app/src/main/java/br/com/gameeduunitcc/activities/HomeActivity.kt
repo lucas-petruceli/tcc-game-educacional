@@ -39,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
                 RepoDatabase.getInstance(this@HomeActivity)?.niveisAlternativasDAO()?.getAll()
 
             MainScope().launch {
-                val nome = niveis?.get(1)?.imagemArquivo
+                val nome = niveis?.get(19)?.imagemArquivo
                 val resoucerId =
                     resources.getIdentifier(nome, "drawable", this@HomeActivity.packageName)
                 val drawableId = ContextCompat.getDrawable(this@HomeActivity, resoucerId)
