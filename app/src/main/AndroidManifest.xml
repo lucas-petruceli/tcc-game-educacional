@@ -12,8 +12,7 @@
         android:theme="@style/Theme.MyTheme">
         <activity
             android:name=".activities.HomeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +24,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.FasesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.CadastroActivity"
             android:screenOrientation="portrait" />
     </application>
 

@@ -3,7 +3,6 @@ package br.com.gameeduunitcc.activities
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -25,6 +24,7 @@ class GameActivity : AppCompatActivity() {
 
     private var idFase = 1
     private var audioHabilitado = false
+    private var tituloFase: String? = null
     private var nivelCorrente = 0
     private lateinit var alternativasCorrentes: List<GameAlternativa>
     private lateinit var gameNiveis: List<GameNivel>
@@ -55,6 +55,7 @@ class GameActivity : AppCompatActivity() {
     fun setupParams() {
         idFase = intent.getIntExtra("idFase", 1)
         audioHabilitado = intent.getBooleanExtra("audioHabilitado", false)
+        tituloFase = intent.getStringExtra("tituloFase")
     }
 
     fun setupFala() {
@@ -108,7 +109,8 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun startNivel(nivel: GameNivel) {
-        Log.i("testeAudio", nivel.imagemNivel)
+        txtTituloFase.text = tituloFase
+        txtlabel.visibility = View.VISIBLE
         val resoucerNivelId =
             resources.getIdentifier(nivel.imagemNivel, "drawable", this@GameActivity.packageName)
         val drawableNivelId = ContextCompat.getDrawable(this@GameActivity, resoucerNivelId)
@@ -123,7 +125,6 @@ class GameActivity : AppCompatActivity() {
     fun setAdapterAlternativa(alternativa: List<GameAlternativa>) {
         toolbarGame.title = "Nível ${nivelCorrente + 1}"
         alternativasCorrentes = alternativa.shuffled()
-        //TODO reordernar array para o objeto correto nao ficar na mema posição
         rvAlternativas.adapter = AlternativasAdapter(alternativasCorrentes)
     }
 
@@ -144,7 +145,6 @@ class GameActivity : AppCompatActivity() {
 
     fun startAudio(audio: String?) {
         audio?.let { nomeAudio ->
-            Log.i("testeAudio", nomeAudio)
             val soundId =
                 resources.getIdentifier(nomeAudio, "raw", this@GameActivity.packageName)
             val mediaPlayer = MediaPlayer.create(this, soundId)

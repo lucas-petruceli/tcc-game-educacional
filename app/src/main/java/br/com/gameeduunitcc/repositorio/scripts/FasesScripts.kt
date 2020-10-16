@@ -16,7 +16,7 @@ class FasesScripts {
                         1,
                         "Cores com audio",
                         1,
-                        "nomeArquivo",
+                        "QUAL É A COR ?",
                         true
                     )
                 )
@@ -27,7 +27,7 @@ class FasesScripts {
                         2,
                         "Cores",
                         2,
-                        "nomeArquivo",
+                        "QUAL É A COR ?",
                         false
                     )
                 )
@@ -38,7 +38,7 @@ class FasesScripts {
                         3,
                         "Animais com audio",
                         3,
-                        "nomeArquivo",
+                        "QUAL É O ANIMAL ?",
                         true
                     )
                 )
@@ -49,7 +49,7 @@ class FasesScripts {
                         4,
                         "Animais",
                         4,
-                        "nomeArquivo",
+                        "QUAL É O ANIMAL ?",
                         false
                     )
                 )
@@ -60,7 +60,7 @@ class FasesScripts {
                         5,
                         "Formas",
                         5,
-                        "nomeArquivo",
+                        "QUAL É O OBJETO ?",
                         false
                     )
                 )
@@ -71,7 +71,7 @@ class FasesScripts {
                         6,
                         "Formas e Animais",
                         6,
-                        "nomeArquivo",
+                        "QUAL É O OBJETO ?",
                         false
                     )
                 )

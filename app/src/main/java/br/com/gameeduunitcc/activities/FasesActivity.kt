@@ -52,6 +52,7 @@ class FasesActivity : AppCompatActivity() {
                 val intent = Intent(this@FasesActivity, GameActivity::class.java)
                 intent.putExtra("idFase", fases[position].idFase)
                 intent.putExtra("audioHabilitado", fases[position].audioHabilitado)
+                intent.putExtra("tituloFase", fases[position].titulo)
                 startActivity(intent)
                 finish()
             }

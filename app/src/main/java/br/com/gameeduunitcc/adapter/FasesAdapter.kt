@@ -18,7 +18,7 @@ class FasesAdapter(private val allFases: List<Fases>) :
 
     override fun onBindViewHolder(holder: FasesViewHolder, position: Int) {
         val fase = allFases[position]
-        holder.txtTitulo.text = fase.descricao
+        holder.txtTitulo.text = fase.ordem.toString()
     }
 
     override fun getItemCount(): Int = allFases.size

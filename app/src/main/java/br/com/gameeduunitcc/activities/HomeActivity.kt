@@ -11,14 +11,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.gameeduunitcc.Pref
 import br.com.gameeduunitcc.R
 import br.com.gameeduunitcc.viewlModel.HomeVM
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class HomeActivity : AppCompatActivity() {
-
+    var cont = 0
     private val viewModel by lazy {
         ViewModelProvider(this).get(HomeVM::class.java)
     }
@@ -27,7 +26,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setBackground(applicationContext, rlHome, R.drawable.home_background_azul)
+//        setBackground(applicationContext, rlHome, R.drawable.home_background_azul)
+        bindObserver()
         setupActivity()
 
 
@@ -55,29 +55,26 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    fun setupActivity() {
-        btnComecar.setOnClickListener {
-            comecarGame()
-        }
-
-        btnFases.setOnClickListener {
-            fases()
-        }
-    }
-
-    fun comecarGame() {
-        Pref.save(Pref.ID_ULTIMA_FASE_REALIZADA, 1) //TODO REmover
-
+    fun bindObserver() {
         viewModel.fase.observe(this, Observer { faseStart ->
             faseStart?.let {
                 val intent = Intent(this, GameActivity::class.java)
                 intent.putExtra("idFase", it.idFase)
                 intent.putExtra("audioHabilitado", it.audioHabilitado)
+                intent.putExtra("tituloFase", it.titulo)
                 startActivity(intent)
-                return@Observer
             }
         })
-        viewModel.getStartNivel()
+    }
+
+    fun setupActivity() {
+        btnComecar.setOnClickListener {
+            viewModel.getStartNivel()
+        }
+
+        btnFases.setOnClickListener {
+            fases()
+        }
     }
 
     fun fases() {
@@ -95,5 +92,9 @@ class HomeActivity : AppCompatActivity() {
         bitmap = Bitmap.createScaledBitmap(bitmap!!, width, height, true)
         val bitmapDrawable = BitmapDrawable(context.resources, bitmap)
         view.background = bitmapDrawable
+    }
+
+    override fun onPause() {
+        super.onPause()
     }
 }
