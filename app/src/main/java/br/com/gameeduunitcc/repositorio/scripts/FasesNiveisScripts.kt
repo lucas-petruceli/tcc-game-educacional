@@ -174,7 +174,7 @@ class FasesNiveisScripts {
                     FasesNiveis(4, 20)
                 )
 
-                /* NIVEIS - FASE 4 */
+                /* NIVEIS - FASE 5 */
                 RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
                     FasesNiveis(5, 21)
                 )
@@ -213,6 +213,47 @@ class FasesNiveisScripts {
 
                 RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
                     FasesNiveis(5, 30)
+                )
+
+                /* NIVEIS - FASE 6 */
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 31)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 32)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 33)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 34)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 35)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 36)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 37)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 38)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 39)
+                )
+
+                RepoDatabase.getInstance(context)?.fasesNiveisDAO()?.insertAll(
+                    FasesNiveis(6, 40)
                 )
             }
         }

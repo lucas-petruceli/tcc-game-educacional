@@ -283,6 +283,97 @@ class NiveisScripts {
                     )
                 )
 
+                // fase 6
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        31,
+                        "ic_form_triangulo_sombra",
+                        null,
+                        1
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        32,
+                        "ic_animal_vaca_sombra",
+                        null,
+                        2
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        33,
+                        "ic_form_seta_sombra",
+                        null,
+                        3
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        34,
+                        "ic_animal_gato_sombra",
+                        null,
+                        4
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        35,
+                        "ic_form_nuvem_sombra",
+                        null,
+                        5
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        36,
+                        "ic_animal_galinha_sombra",
+                        null,
+                        6
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        37,
+                        "ic_form_gota_sombra",
+                        null,
+                        7
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        38,
+                        "ic_animal_coelho_sombra",
+                        null,
+                        8
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        39,
+                        "ic_form_estrela_sombra",
+                        null,
+                        9
+                    )
+                )
+
+                RepoDatabase.getInstance(context)?.niveisDAO()?.insertAll(
+                    Niveis(
+                        40,
+                        "ic_animal_sapo_sombra",
+                        null,
+                        10
+                    )
+                )
 
             }
         }

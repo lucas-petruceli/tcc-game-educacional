@@ -3,9 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.HomeActivity"
     android:padding="8dp"
     android:id="@+id/rlHome">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        app:lottie_rawRes="@raw/animate_error"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true" />
 
     <TextView
         android:id="@+id/txtTitulo"
