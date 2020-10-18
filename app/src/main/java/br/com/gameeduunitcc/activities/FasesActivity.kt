@@ -78,5 +78,4 @@ class FasesActivity : AppCompatActivity() {
         })
         viewModel.getAllFases()
     }
-
 }

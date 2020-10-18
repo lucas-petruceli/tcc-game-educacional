@@ -26,6 +26,4 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-
-
 }

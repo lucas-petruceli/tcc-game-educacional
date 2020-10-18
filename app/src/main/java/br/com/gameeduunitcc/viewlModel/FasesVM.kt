@@ -1,7 +1,6 @@
 package br.com.gameeduunitcc.viewlModel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -19,7 +18,6 @@ class FasesVM(application: Application) : AndroidViewModel(application) {
                 val fases = RepoDatabase.getInstance(app)?.fasesDAO()?.getAll()
                 allFases.postValue(fases)
             } catch (err: Exception) {
-                Log.i("testeBd", err.toString())
             }
         }
     }

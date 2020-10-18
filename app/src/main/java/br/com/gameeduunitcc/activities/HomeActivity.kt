@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class HomeActivity : AppCompatActivity() {
-    var cont = 0
     private val viewModel by lazy {
         ViewModelProvider(this).get(HomeVM::class.java)
     }
@@ -25,34 +24,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 //        setBackground(applicationContext, rlHome, R.drawable.home_background_azul)
         bindObserver()
         setupActivity()
-
-
-//        GlobalScope.launch {
-//            val fases = RepoDatabase.getInstance(this@HomeActivity)?.fasesDAO()?.getAll()
-//            val niveis = RepoDatabase.getInstance(this@HomeActivity)?.niveisDAO()?.getAll()
-//
-//            val fasesNiveis =
-//                RepoDatabase.getInstance(this@HomeActivity)?.fasesNiveisDAO()?.getAll()
-//            val alternativas =
-//                RepoDatabase.getInstance(this@HomeActivity)?.alternativasDAO()?.getAll()
-//            val niveisAlternativas =
-//                RepoDatabase.getInstance(this@HomeActivity)?.niveisAlternativasDAO()?.getAll()
-//
-//            MainScope().launch { // TODO: corre o risco de não ter terminado de popular todos os dados
-//                val nome = niveis?.get(19)?.imagemArquivo
-//                val resoucerId =
-//                    resources.getIdentifier(nome, "drawable", this@HomeActivity.packageName)
-//                val drawableId = ContextCompat.getDrawable(this@HomeActivity, resoucerId)
-//                teste.setImageDrawable(drawableId)
-//            }
-//
-//            val t = 10
-//        }
-
     }
 
     fun bindObserver() {

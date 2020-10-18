@@ -1,7 +1,6 @@
 package br.com.gameeduunitcc.viewlModel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -13,24 +12,11 @@ import kotlinx.coroutines.launch
 class GameVM(application: Application) : AndroidViewModel(application) {
     private var app: Application = application
     val game = MutableLiveData<List<GameNivel>>()
-//    var allNiveis = MutableLiveData<List<FasesNiveis>>()
-//
-//    fun getAllNiveis(idFase : Int){
-//        viewModelScope.launch {
-//            try {
-//                val niveis = RepoDatabase.getInstance(app)?.fasesNiveisDAO()?.getNivel(idFase)
-//                allNiveis.postValue(niveis)
-//            }catch (err: Exception){
-//                Log.i("testeBd", err.toString())
-//            }
-//        }
-//    }
 
     fun getGame(idFase: Int) {
         viewModelScope.launch {
             try {
                 val listGame: MutableList<GameNivel> = mutableListOf()
-
                 val allniveis = RepoDatabase.getInstance(app)?.fasesNiveisDAO()?.getNivel(idFase)
                 allniveis?.let { niveis ->
                     niveis.forEach {
@@ -57,20 +43,13 @@ class GameVM(application: Application) : AndroidViewModel(application) {
                                 nivel.audioArquivo,
                                 listAlternativa
                             )
-
                             listGame.add(gameObject)
                         }
-                        //TODO: tratar alternativas vazias
                     }
                     game.postValue(listGame)
                     return@launch
                 }
-
-                //TODO: tratar allniveis vazio
-
-
             } catch (err: Exception) {
-                Log.i("testeBd", err.toString())
             }
         }
     }
