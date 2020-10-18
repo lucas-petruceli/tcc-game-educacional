@@ -3,6 +3,7 @@ package br.com.gameeduunitcc.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -64,10 +65,16 @@ class FasesActivity : AppCompatActivity() {
             allFases?.let {
                 fases = it as MutableList<Fases>
                 rvFases.adapter = FasesAdapter(fases)
+                loaderFases.visibility = View.GONE
                 return@Observer
             }
 
-            //TODO: SnackBar Para avisar que não foi possivel recuperar as fases tente novamente
+            Toast.makeText(
+                this@FasesActivity,
+                " Ooops.. Tivemos um problema, tente novamente",
+                Toast.LENGTH_SHORT
+            ).show()
+            finish()
         })
         viewModel.getAllFases()
     }

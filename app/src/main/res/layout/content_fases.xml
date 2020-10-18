@@ -9,6 +9,13 @@
     tools:showIn="@layout/activity_fases"
     android:background="@android:color/white">
 
+    <ProgressBar
+        android:id="@+id/loaderFases"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFases"
         android:layout_width="match_parent"

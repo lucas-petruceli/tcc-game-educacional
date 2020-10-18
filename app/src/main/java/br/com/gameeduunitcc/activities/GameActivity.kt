@@ -4,6 +4,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -15,6 +16,7 @@ import br.com.gameeduunitcc.adapter.AlternativasAdapter
 import br.com.gameeduunitcc.models.GameAlternativa
 import br.com.gameeduunitcc.models.GameNivel
 import br.com.gameeduunitcc.utils.ClickListener
+import br.com.gameeduunitcc.utils.DialogRespostaErrada
 import br.com.gameeduunitcc.utils.TouchListener
 import br.com.gameeduunitcc.viewlModel.GameVM
 import kotlinx.android.synthetic.main.activity_game.*
@@ -31,8 +33,6 @@ class GameActivity : AppCompatActivity() {
     private val viewModel by lazy {
         ViewModelProvider(this).get(GameVM::class.java)
     }
-
-    //TODO: implementar alguma forma de loader e parar ele dentro do observer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +79,6 @@ class GameActivity : AppCompatActivity() {
                 rvAlternativas,
                 object : ClickListener {
                     override fun onClick(view: View?, position: Int) {
-
                         if (alternativasCorrentes[position].valida) {
                             if (nivelCorrente + 1 == gameNiveis.size) {
                                 finalizarFase()
@@ -87,13 +86,13 @@ class GameActivity : AppCompatActivity() {
                             }
                             nivelCorrente++
                             startNivel(gameNiveis[nivelCorrente])
-                            //TODO: implementar animação (usuario Acertou)
                         } else {
-                            //TODO: implementar animação (usuario Errou)
+                            DialogRespostaErrada.newInstance()
+                                .show(supportFragmentManager, "Errada")
                         }
-
                     }
-                })
+                }
+            )
         )
     }
 
@@ -104,6 +103,12 @@ class GameActivity : AppCompatActivity() {
                 startNivel(gameNiveis[nivelCorrente])
                 return@Observer
             }
+            Toast.makeText(
+                this@GameActivity,
+                " Ooops.. Tivemos um problema, tente novamente",
+                Toast.LENGTH_SHORT
+            ).show()
+            finish()
         })
         viewModel.getGame(idFase)
     }
@@ -126,6 +131,7 @@ class GameActivity : AppCompatActivity() {
         toolbarGame.title = "Nível ${nivelCorrente + 1}"
         alternativasCorrentes = alternativa.shuffled()
         rvAlternativas.adapter = AlternativasAdapter(alternativasCorrentes)
+        loaderGame.visibility = View.GONE
     }
 
     fun finalizarFase() {
