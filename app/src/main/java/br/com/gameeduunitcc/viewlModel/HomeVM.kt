@@ -15,7 +15,7 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
     private var app: Application = application
     var fase = MutableLiveData<Fases>()
 
-    fun getStartNivel() {
+    fun getStartFase() {
         val idFase = Pref.read(Pref.ID_ULTIMA_FASE_REALIZADA, 1)
         viewModelScope.launch {
             try {

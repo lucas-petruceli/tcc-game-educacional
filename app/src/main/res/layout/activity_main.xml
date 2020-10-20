@@ -5,34 +5,50 @@
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity"
     android:padding="8dp"
+    android:background="@drawable/background_main"
     android:id="@+id/rlHome">
 
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
+        android:textSize="38dp"
+        android:textStyle="bold"
+        android:textColor="#6200EE"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:text="Bem Vindo" />
 
     <Button
         android:id="@+id/btnComecar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_width="270dp"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowRadius="5"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="180dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="COMEÇAR" />
 
     <Button
         android:id="@+id/btnFases"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:background="@drawable/buttonshape"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_below="@+id/btnComecar"
         android:layout_marginTop="10dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:text="Fases" />
 
 </RelativeLayout>

@@ -1,11 +1,15 @@
 package br.com.gameeduunitcc.activities
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +21,7 @@ import br.com.gameeduunitcc.models.GameAlternativa
 import br.com.gameeduunitcc.models.GameNivel
 import br.com.gameeduunitcc.utils.ClickListener
 import br.com.gameeduunitcc.utils.DialogRespostaErrada
+import br.com.gameeduunitcc.utils.Layout
 import br.com.gameeduunitcc.utils.TouchListener
 import br.com.gameeduunitcc.viewlModel.GameVM
 import kotlinx.android.synthetic.main.activity_game.*
@@ -29,6 +34,8 @@ class GameActivity : AppCompatActivity() {
     private var tituloFase: String? = null
     private var nivelCorrente = 0
     private lateinit var alternativasCorrentes: List<GameAlternativa>
+    private lateinit var customDialog: Dialog
+    private lateinit var btnClose: Button
     private lateinit var gameNiveis: List<GameNivel>
     private val viewModel by lazy {
         ViewModelProvider(this).get(GameVM::class.java)
@@ -44,7 +51,7 @@ class GameActivity : AppCompatActivity() {
         getNiveis()
     }
 
-    fun setupToolbar() {
+    private fun setupToolbar() {
         toolbarGame.setNavigationIcon(R.drawable.ic_arrow_left_white_24)
         toolbarGame.setTitleTextColor(resources.getColor(R.color.white, null))
         toolbarGame.setNavigationOnClickListener {
@@ -52,13 +59,13 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    fun setupParams() {
+    private fun setupParams() {
         idFase = intent.getIntExtra("idFase", 1)
         audioHabilitado = intent.getBooleanExtra("audioHabilitado", false)
         tituloFase = intent.getStringExtra("tituloFase")
     }
 
-    fun setupFala() {
+    private fun setupFala() {
         if (audioHabilitado) {
             imgFala.visibility = View.VISIBLE
             imgFala.setOnClickListener {
@@ -67,7 +74,7 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    fun setupRecyclerView() {
+    private fun setupRecyclerView() {
         val layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
@@ -96,7 +103,7 @@ class GameActivity : AppCompatActivity() {
         )
     }
 
-    fun getNiveis() {
+    private fun getNiveis() {
         viewModel.game.observe(this, Observer {
             it?.let {
                 gameNiveis = it
@@ -113,7 +120,7 @@ class GameActivity : AppCompatActivity() {
         viewModel.getGame(idFase)
     }
 
-    fun startNivel(nivel: GameNivel) {
+    private fun startNivel(nivel: GameNivel) {
         txtTituloFase.text = tituloFase
         txtlabel.visibility = View.VISIBLE
         val resoucerNivelId =
@@ -127,15 +134,14 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    fun setAdapterAlternativa(alternativa: List<GameAlternativa>) {
+    private fun setAdapterAlternativa(alternativa: List<GameAlternativa>) {
         toolbarGame.title = "Nível ${nivelCorrente + 1}"
         alternativasCorrentes = alternativa.shuffled()
         rvAlternativas.adapter = AlternativasAdapter(alternativasCorrentes)
         loaderGame.visibility = View.GONE
     }
 
-    fun finalizarFase() {
-        //TODO: colocar dailog mostrando a quantidade de acerto
+    private fun finalizarFase() {
         var proximaFase = 0
         if (idFase == 6) {
             proximaFase = 1
@@ -144,17 +150,45 @@ class GameActivity : AppCompatActivity() {
         }
 
         Pref.save(Pref.ID_ULTIMA_FASE_REALIZADA, proximaFase)
-        val intent = Intent(this@GameActivity, FasesActivity::class.java)
-        startActivity(intent)
-        finish()
+
+        customDialogFinalizar()
     }
 
-    fun startAudio(audio: String?) {
+    private fun startAudio(audio: String?) {
         audio?.let { nomeAudio ->
             val soundId =
                 resources.getIdentifier(nomeAudio, "raw", this@GameActivity.packageName)
             val mediaPlayer = MediaPlayer.create(this, soundId)
             mediaPlayer.start()
+        }
+    }
+
+    private fun customDialogFinalizar() {
+        val view = View.inflate(this, R.layout.dialog_final_fase, null)
+        btnClose = view.findViewById(R.id.btnSairDialog)
+        showCustomDialog(view)
+    }
+
+    private fun showCustomDialog(contentView: View) {
+        customDialog = Dialog(this@GameActivity, R.style.SlideFromBottom)
+        customDialog.setContentView(contentView)
+        customDialog.setCancelable(false)
+        val customDialogWindow = customDialog.window
+        customDialogWindow!!.setLayout(
+            Layout.getScreenWidth(this@GameActivity) - 30,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+        customDialogWindow.setGravity(Gravity.CENTER)
+        customDialog.show()
+
+
+        if (this::btnClose.isInitialized) {
+            btnClose.setOnClickListener {
+                val intent = Intent(this@GameActivity, FasesActivity::class.java)
+                startActivity(intent)
+                customDialog.dismiss()
+                finish()
+            }
         }
     }
 }
